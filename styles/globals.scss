@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    border: 0;
+}
+
+.card-flex{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

@@ -1,0 +1,40 @@
+.card{
+    padding: 30px 0px;
+    width: 336px;
+    height: auto; 
+
+    img{
+        object-fit: contain;
+        margin: 0px 55px;
+    }
+
+    .title{
+        display: block;
+        margin: 0px 30px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #2E2E33;
+    }
+
+    .price{
+        margin-top: 7px;
+        margin-bottom: 13px;
+        margin-left: 30px;
+
+        span{
+            font-size: 22px;
+            font-weight: 600;
+            color: #2E2E33;
+        }
+
+        small{
+            margin-left: 5px;
+            color: #999999;
+            font-size: 11px;
+        }
+    }
+    .addCart{
+        background-color: aqua;
+    }
+}
