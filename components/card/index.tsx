@@ -2,7 +2,6 @@ import { fetcher } from "@/helpers/fetcher";
 import Image from "next/image";
 import { useSWRConfig } from "swr"
 
-
 import styles from "../../styles/card.module.scss"
 
 interface CardInterface {
@@ -18,11 +17,15 @@ const Card = ({ id, title, price, description, image }: CardInterface) => {
 
     const handleAddToCart = () => {
         mutate(
-            "http://localhost:3004/product",
-            fetcher('http://localhost:3004/product'), {}
-
+            "http://localhost:3004/cart",
+            fetcher('http://localhost:3004/cart', {
+                method: 'POST',
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ id, title, price, description, image })
+            }),
         )
     }
+
     return (
         <div className={styles.card}>
             <Image src={image} width={220} height={220} alt={title} />
@@ -33,16 +36,20 @@ const Card = ({ id, title, price, description, image }: CardInterface) => {
                 <span>{price} руб.</span>
                 <small>/шт</small>
             </div>
-            <div>
-                <button onClick={handleAddToCart} className={styles.addCart}>В корзину</button>
+            <div className={styles.add}>
                 <div>
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <button onClick={handleAddToCart}>
+                        В корзину
+                    </button>
+
+                    <div className={styles.counter}>
+                        <b>-</b>
+                        <span>1</span>
+                        <b>+</b>
+                    </div>
                 </div>
             </div>
         </div>
-
     )
 
 }

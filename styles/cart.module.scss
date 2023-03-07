@@ -1,0 +1,28 @@
+.cart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1{
+        padding: 20px;
+    }
+
+    .cartEmpty{
+        padding: 70px;
+        text-align: center;
+
+    }
+
+    .btnMain{
+        text-align: center;
+        background-color: #346d9f;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        padding: 8px 24px 10px;
+        text-decoration: none;
+        
+    }
+    
+}

@@ -22,12 +22,12 @@ export default AAA;
 // export const Card: React.FC<CardInterface> = ({ data }) => {
 //     return (
 //         <>
-//             <div className={styles.card}>
-//                 <Image src={data.image} alt='' />
-//                 <span>{data.title}</span>
-//                 <span>{data.price}</span>
-//                 <p className={styles.description}>{data.description}</p>
-//             </div>
+            // <div className={styles.card}>
+            //     <Image src={data.image} alt='' />
+            //     <span>{data.title}</span>
+            //     <span>{data.price}</span>
+            //     <p className={styles.description}>{data.description}</p>
+            // </div>
 //         </>
 //     )
 // }
