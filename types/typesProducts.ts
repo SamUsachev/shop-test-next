@@ -7,4 +7,4 @@ export type Products = {
 
 };
 
-export type ProductCard = Required<Products>
+export type ProductCart = Required<Products>
