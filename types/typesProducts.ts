@@ -8,3 +8,5 @@ export type Products = {
 };
 
 export type ProductCart = Required<Products>
+
+export type ProductFavourite = Required<Products>

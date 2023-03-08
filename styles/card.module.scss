@@ -35,8 +35,35 @@
             font-size: 11px;
         }
     }
-    .addCart{
-        cursor: pointer;
-        background-color: aqua;
+    .add{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img{
+            cursor: pointer;
+            margin-bottom: 100px;
+            margin-right: 100px;
+        }
+        button{
+            cursor: pointer;
+            height: 42px;
+            border: none;
+            background: #738595;
+            color: black;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 5px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        button:hover{
+            background: rgba(0,0,0,0);
+	        color: #738595;
+	        box-shadow: inset 0 0 0 3px #738595;
+        }
+
+        
     }
 }

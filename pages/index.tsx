@@ -12,7 +12,7 @@ import useSWR from 'swr';
 // }
 
 const Main = () => {
-  const { data, error, mutate } = useSWR<Products[]>(
+  const { data } = useSWR<Products[]>(
     'http://localhost:3004/product',
     fetcher
   );
