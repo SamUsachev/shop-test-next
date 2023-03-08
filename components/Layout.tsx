@@ -6,7 +6,9 @@ interface LayoutInterface {
 }
 
 const Layout: React.FC<LayoutInterface> = ({ children }) => {
+
     return (
+
         <>
             <Header />
             {children}
