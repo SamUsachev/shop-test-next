@@ -1,4 +1,4 @@
-.cart{
+.favourites{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -24,8 +24,9 @@
         text-decoration: none;
         
     }
-    
+
     .removeCard{
         cursor: pointer;
     }
+    
 }

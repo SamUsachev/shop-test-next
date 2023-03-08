@@ -1,13 +1,19 @@
 import useSWR from "swr"
 import { ProductCart } from '@/types/typesProducts';
-import { useState } from 'react';
 import { fetcher } from "@/helpers/fetcher";
-
-import styles from '../styles/cart.module.scss'
 import Image from "next/image";
 
+import styles from '../styles/cart.module.scss'
+
+const url = "http://localhost:3004/cart/"
+
 const Cart = () => {
-    const { data, error, mutate } = useSWR<ProductCart[]>("http://localhost:3004/cart", fetcher)
+    const { data, error, mutate } = useSWR<ProductCart[]>(url, fetcher)
+
+    const handleRemoveToCart = async (id: string) => {
+        fetcher(url + id, { method: 'DELETE' })
+    }
+
     return (
         <div className={styles.cart}>
             <h1>Корзина товаров</h1>
@@ -20,6 +26,12 @@ const Cart = () => {
                             <span>{el.title}</span>
                             <span>{el.price}</span>
                             <p className={styles.description}>{el.description}</p>
+                            <button className={styles.removeCart} onClick={async () => {
+                                await handleRemoveToCart(el.id)
+                                mutate(data.filter(a => a.id !== el.id), { revalidate: false })
+                            }}>
+                                <Image src='/images/delete.png' width={22} height={18} alt='delete' />
+                            </button>
                         </div>
                     ))}
                 </>

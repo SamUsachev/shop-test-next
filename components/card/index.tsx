@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useSWRConfig } from "swr"
 
 import styles from "../../styles/card.module.scss"
+import AddCard from "./AddCard";
 
 interface CardInterface {
     id: string,
@@ -13,18 +14,6 @@ interface CardInterface {
 };
 
 const Card = ({ id, title, price, description, image }: CardInterface) => {
-    const { mutate } = useSWRConfig()
-
-    const handleAddToCart = () => {
-        mutate(
-            "http://localhost:3004/cart",
-            fetcher('http://localhost:3004/cart', {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json' },
-                body: JSON.stringify({ id, title, price, description, image })
-            }),
-        )
-    }
 
     return (
         <div className={styles.card}>
@@ -36,19 +25,7 @@ const Card = ({ id, title, price, description, image }: CardInterface) => {
                 <span>{price} руб.</span>
                 <small>/шт</small>
             </div>
-            <div className={styles.add}>
-                <div>
-                    <button onClick={handleAddToCart}>
-                        В корзину
-                    </button>
-
-                    <div className={styles.counter}>
-                        <b>-</b>
-                        <span>1</span>
-                        <b>+</b>
-                    </div>
-                </div>
-            </div>
+            <AddCard {...{ id, title, price, description, image }} />
         </div>
     )
 
