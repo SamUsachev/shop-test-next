@@ -7,12 +7,12 @@
         padding: 20px;
     }
 
-    .cartEmpty{
-        padding: 70px;
-        text-align: center;
-
+    .favEmpty{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
-
+    
     .btnMain{
         text-align: center;
         background-color: #346d9f;

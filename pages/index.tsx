@@ -1,23 +1,18 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import { Products } from '@/types/typesProducts';
 import Card from '@/components/card';
 import { fetcher } from '@/helpers/fetcher';
 import useSWR from 'swr';
 
-// interface ResponseTypeInterface {
-//   productCard: ProductCard[]
-
-// }
-
 const Main = () => {
+
   const { data } = useSWR<Products[]>(
     'http://localhost:3004/product',
     fetcher
   );
+
   return (
-    <div>
+
+    <div className="products-grid">
       {!data ? (
         <h1>spinner</h1>
       ) : (
@@ -30,20 +25,5 @@ const Main = () => {
     </div>
   );
 };
-
-// const Main: React.FC<ResponseTypeInterface> = ({ productCard }) => {
-//   const { data, error } = useSWR<ProductCard[]>
-//   ('http://localhost:3004/product', fetcher)
-
-//   return (
-//     <div>
-//       {productCard.map((item) => (
-//         <div key={item.id}>
-//           <Card {...item} />
-//         </div>
-//       ))}
-//     </div>
-//   )
-// }
 
 export default Main;

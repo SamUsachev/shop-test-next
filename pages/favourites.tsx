@@ -37,7 +37,7 @@ const Favourites = () => {
                     ))}
                 </>
             ) : (
-                <div className={styles.cartEmpty}>
+                <div className={styles.favEmpty}>
                     <h3>Загляните на главную, чтобы добавить товары в избранное</h3>
                     <a className={styles.btnMain} href='/'>На главную</a>
                 </div>
