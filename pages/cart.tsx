@@ -15,6 +15,7 @@ const Cart = () => {
     }
 
     return (
+
         <div className={styles.cart}>
             <h1>Корзина товаров</h1>
             {/* {!data && !error && <div>spinner</div>} */}
@@ -24,7 +25,7 @@ const Cart = () => {
                         <div className={styles.card}>
                             <Image src={el.image} alt='' width={100} height={100} />
                             <span>{el.title}</span>
-                            <span>{el.price}</span>
+                            <span>  {el.price} руб.</span>
                             <p className={styles.description}>{el.description}</p>
                             <button className={styles.removeCart} onClick={async () => {
                                 await handleRemoveToCart(el.id)

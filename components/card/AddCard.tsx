@@ -1,8 +1,8 @@
 import { useSWRConfig } from "swr"
 import { fetcher } from "@/helpers/fetcher";
+import Image from "next/image";
 
 import styles from './../../styles/card.module.scss'
-import Image from "next/image";
 
 interface AddInterface {
     id: string,
@@ -27,7 +27,6 @@ const AddCard = ({ id, title, price, description, image }: AddInterface) => {
         )
     }
 
-
     const handleAddToCart = () => {
         mutate(
             "http://localhost:3004/cart",
@@ -51,9 +50,7 @@ const AddCard = ({ id, title, price, description, image }: AddInterface) => {
                     <b>+</b>
                 </div>
             </div>
-
             <Image onClick={handleAddToFavourites} src='/images/favourites.png' width={19} height={16} alt='to favorites' />
-
         </div>
 
     );

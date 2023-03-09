@@ -8,11 +8,14 @@ import styles from '../styles/favourites.module.scss'
 const url = "http://localhost:3004/favourites/"
 
 const Favourites = () => {
+
     const { data, mutate } = useSWR<ProductFavourite[]>(url, fetcher)
     const handleRemoveToFavourites = async (id: string) => {
         fetcher(url + id, { method: 'DELETE' })
     }
+
     return (
+
         <div className={styles.favourites}>
             <h1>Избранное</h1>
             {/* {!data && !error && <div>spinner</div>} */}
@@ -22,7 +25,7 @@ const Favourites = () => {
                         <div className={styles.card}>
                             <Image src={el.image} alt='' width={100} height={100} />
                             <span>{el.title}</span>
-                            <span>{el.price}</span>
+                            <span>  {el.price} руб.</span>
                             <p className={styles.description}>{el.description}</p>
                             <button className={styles.removeCard} onClick={async () => {
                                 await handleRemoveToFavourites(el.id)
@@ -34,7 +37,7 @@ const Favourites = () => {
                     ))}
                 </>
             ) : (
-                <div className={styles.cartEmpty}>
+                <div className={styles.favEmpty}>
                     <h3>Загляните на главную, чтобы добавить товары в избранное</h3>
                     <a className={styles.btnMain} href='/'>На главную</a>
                 </div>
